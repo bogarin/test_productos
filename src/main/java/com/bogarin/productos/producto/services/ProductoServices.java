@@ -17,5 +17,6 @@ public class ProductoServices {
     public ProductoEntity productFindById(Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Producto con ID " + id + " no encontrado"));
+                
     }
 }
