@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: dockerfile.dev
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ejemplo
+      POSTGRES_USER: bogarin
+      POSTGRES_PASSWORD: bogarin
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: bogarin@example.com
+      PGADMIN_DEFAULT_PASSWORD: bogarin
+    networks:
+      - app-network
+    depends_on:
+      - postgres
+
+volumes:
+  postgres-data:
+
+networks:
+  app-network:
