@@ -28,10 +28,10 @@ public class ProductosController {
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ProductoEntity> getProducto(@PathVariable Long id) {
         try {
-            log.info("llego aqui ejecucion");
+            log.info("llego aquí ejecución");
             return ResponseEntity.ok(services.productFindById(id));
         } catch (Exception e) {
-            log.info("llego aqui error");
+            log.info("llego aquí error");
             return ResponseEntity.notFound().build();
         }
 

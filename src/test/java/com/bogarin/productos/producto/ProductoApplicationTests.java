@@ -35,6 +35,7 @@ class ProductoApplicationTests {
 		assertTrue(resultSet.getStatusCode().is2xxSuccessful());
 		assertEquals(entity.getNombre(), resultSet.getBody().getNombre());
 		assertEquals(entity.getDescripcion(), resultSet.getBody().getDescripcion());
+		assertEquals(1L, resultSet.getBody().getId());
 	}
 
 	@Test
