@@ -18,9 +18,10 @@ public class ProductoServicesImpl implements ProductoServices {
 
     private ProductoRepository repository;
 
-    public ProductoEntity productFindById(Long id) {
-        return repository.findById(id)
-                .orElseThrow(() -> new EntityNotFoundException("Producto con ID " + id + " no encontrado"));
+    public ProductoDTO productFindById(Long id) {
+        return Mappers.entityToDto.apply(repository.findById(id)
+        .orElseThrow(() -> new EntityNotFoundException("Producto con ID " + id + " no encontrado")));
+        
 
     }
 

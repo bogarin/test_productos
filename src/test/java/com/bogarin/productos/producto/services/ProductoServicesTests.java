@@ -13,6 +13,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.bogarin.productos.producto.dtos.ProductoDTO;
 import com.bogarin.productos.producto.entitys.ProductoEntity;
 import com.bogarin.productos.producto.repositorys.ProductoRepository;
 
@@ -35,12 +36,12 @@ class ProductoServicesTests {
         entity.setId(1L);
         entity.setNombre("computadora");
         entity.setDescripcion("compu");
-        when(repository.findById(1L)).thenReturn(Optional.of(entity));
-        ProductoEntity result = services.productFindById(1L);
+        when(repository.findById(anyLong())).thenReturn(Optional.of(entity));
+        ProductoDTO result = services.productFindById(1L);
         assertNotNull(result);
-        assertEquals(1L, result.getId());
-        assertEquals("computadora", result.getNombre());
-        assertEquals("compu", result.getDescripcion());
+        assertEquals(entity.getId(), result.getId().longValue());
+        assertEquals(entity.getNombre(), result.getNombre());
+        assertEquals(entity.getDescripcion(), result.getDescripcion());
     }
 
     @Test

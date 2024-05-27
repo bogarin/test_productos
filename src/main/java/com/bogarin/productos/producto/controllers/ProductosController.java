@@ -33,7 +33,7 @@ public class ProductosController {
     private static final String VALID_MESSAGE_PARAM = "El ID del producto debe ser un número positivo";
 
     @GetMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ProductoEntity> getProducto(
+    public ResponseEntity<ProductoDTO> getProducto(
             @Valid @Positive(message = VALID_MESSAGE_PARAM) @PathVariable Long id) {
         log.info("llego aquí ejecución");
         return ResponseEntity.ok(services.productFindById(id));
@@ -52,10 +52,10 @@ public class ProductosController {
     }
 
     @PutMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<ProductoEntity> updateProducto(
+    public ResponseEntity<ProductoDTO> updateProducto(
             @Valid @Positive(message = VALID_MESSAGE_PARAM) @PathVariable Long id,
             @RequestBody ProductoEntity productoDetails) {
-        return ResponseEntity.ok(new ProductoEntity());
+        return ResponseEntity.ok(new ProductoDTO());
     }
 
     @DeleteMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)

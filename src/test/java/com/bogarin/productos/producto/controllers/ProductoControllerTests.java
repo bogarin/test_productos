@@ -13,7 +13,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.ResponseEntity;
 
-import com.bogarin.productos.producto.entitys.ProductoEntity;
+import com.bogarin.productos.producto.dtos.ProductoDTO;
 import com.bogarin.productos.producto.services.ProductoServices;
 
 @DisplayName("pruebas de  Controllers usando Mocks")
@@ -31,9 +31,9 @@ class ProductoControllerTests {
 	@Tag("unit")
 	@DisplayName("Buscando Happy Path para obtener creando mocks de resultado")
 	void casoDePruebaController1() throws Exception {
-		ProductoEntity entity = new ProductoEntity(1l, "computadora", "compu");
+		ProductoDTO entity = new ProductoDTO(1l, "computadora", "compu");
 		when(services.productFindById(1l)).thenReturn(entity);
-		ResponseEntity<ProductoEntity> resultSet = controller.getProducto(1L);
+		ResponseEntity<ProductoDTO> resultSet = controller.getProducto(1L);
 		assertTrue(resultSet.getStatusCode().is2xxSuccessful());
 		assertEquals(entity.getNombre(), resultSet.getBody().getNombre());
 		assertEquals(entity.getDescripcion(), resultSet.getBody().getDescripcion());
