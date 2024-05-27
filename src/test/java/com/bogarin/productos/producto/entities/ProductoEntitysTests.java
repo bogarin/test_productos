@@ -10,7 +10,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.bogarin.productos.producto.entitys.ProductoEntity;
 
-@DisplayName("RPuebas de entities usando Mocks")
+@DisplayName("Pruebas de entities usando Mocks")
 @ExtendWith(MockitoExtension.class)
 class ProductoEntitysTests {
 

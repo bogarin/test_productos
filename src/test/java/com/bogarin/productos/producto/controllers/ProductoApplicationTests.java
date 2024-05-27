@@ -58,8 +58,17 @@ class ProductoApplicationTests {
 		log.info(producto.toString());
 		mockMvc.perform(get("/productos/" + producto.getId()))
 				.andExpect(status().isOk())
-				.andExpect(jsonPath("$.nombre").value("Producto Existente"))
-				.andExpect(jsonPath("$.descripcion").value("Descripcion del Producto Existente"));
+				.andExpect(jsonPath("$.nombre").value(producto.getNombre()))
+				.andExpect(jsonPath("$.descripcion").value(producto.getDescripcion()));
+	}
+
+	@Test
+	@Tag("integrations")
+	void hola2() throws Exception {
+		long nonExistingProductId = 999L;
+
+		mockMvc.perform(get("/productos/" + nonExistingProductId))
+				.andExpect(status().is4xxClientError());
 	}
 
 }

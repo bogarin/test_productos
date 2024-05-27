@@ -1,5 +1,5 @@
 # Usamos la imagen de Maven 3.6.0 para compilar y generar el servicio.
-FROM maven:3.8.4-openjdk-17-slim AS build
+FROM maven:3.9.6-ibm-semeru-21-jammy AS build
 # Asignamos la zona horaria
 ENV TZ America/Mexico_City
 # Copiamos el codigo dentro del container.

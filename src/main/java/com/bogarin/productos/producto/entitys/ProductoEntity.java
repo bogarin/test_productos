@@ -26,6 +26,7 @@ public class ProductoEntity {
     @Column(name = "num_producto")
     private long id;
 
+    
     @Column(name = "nombre_producto")
     private String nombre;
 

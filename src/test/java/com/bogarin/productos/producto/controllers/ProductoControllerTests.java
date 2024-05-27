@@ -31,11 +31,11 @@ class ProductoControllerTests {
 
 
 	@Test
-	@Tag("unitController")
+	@Tag("unit")
 	@DisplayName("Buscando Happy Path para obtener creando mocks de resultado")
 	void casoDePruebaController1() throws Exception {
 		ProductoEntity entity = new ProductoEntity(1l, "computadora", "compu");
-		when(services.productFindById(1L)).thenReturn(entity);
+		when(services.productFindById(1l)).thenReturn(entity);
 		ResponseEntity<ProductoEntity> resultSet = controller.getProducto(1L);
 		assertTrue(resultSet.getStatusCode().is2xxSuccessful());
 		assertEquals(entity.getNombre(), resultSet.getBody().getNombre());
@@ -43,13 +43,5 @@ class ProductoControllerTests {
 		assertEquals(1L, resultSet.getBody().getId());
 	}
 
-	@Test
-	@Tag("unitController")
-	@DisplayName("Buscando Happy Path para obtener un resultado vacio con mocks")
-	void casoDePruebaController2() throws Exception {
-		when(services.productFindById(anyLong()))
-				.thenThrow(new EntityNotFoundException());
-		ResponseEntity<ProductoEntity> resultSet = controller.getProducto(1L);
-		assertTrue(resultSet.getStatusCode().is4xxClientError());
-	}
+
 }

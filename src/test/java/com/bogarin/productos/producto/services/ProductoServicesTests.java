@@ -35,7 +35,7 @@ class ProductoServicesTests {
         entity.setId(1L);
         entity.setNombre("computadora");
         entity.setDescripcion("compu");
-        when(repository.findById(anyLong())).thenReturn(Optional.of(entity));
+        when(repository.findById(1L)).thenReturn(Optional.of(entity));
         ProductoEntity result = services.productFindById(1L);
         assertNotNull(result);
         assertEquals(1L, result.getId());
@@ -47,7 +47,6 @@ class ProductoServicesTests {
     @DisplayName("Producto no encontrado")
     void casoDePruebaServices2() {
         when(repository.findById(anyLong())).thenReturn(Optional.empty());
-
         assertThrows(EntityNotFoundException.class, () -> services.productFindById(1L));
     }
 }
