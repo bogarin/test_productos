@@ -1,6 +1,5 @@
 package com.bogarin.productos.producto.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.http.MediaType;

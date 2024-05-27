@@ -2,7 +2,6 @@ package com.bogarin.productos.producto.controllers;
 
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
 import org.junit.jupiter.api.DisplayName;
@@ -16,8 +15,6 @@ import org.springframework.http.ResponseEntity;
 
 import com.bogarin.productos.producto.entitys.ProductoEntity;
 import com.bogarin.productos.producto.services.ProductoServices;
-
-import jakarta.persistence.EntityNotFoundException;
 
 @DisplayName("pruebas de  Controllers usando Mocks")
 @ExtendWith(MockitoExtension.class)
