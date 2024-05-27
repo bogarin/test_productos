@@ -46,15 +46,15 @@ public class ProductosController {
     }
 
     @PostMapping
-    public ResponseEntity<ProductoEntity> createProducto(@Valid @RequestBody ProductoParamsDTO producto) {
+    public ResponseEntity<ProductoDTO> createProducto(@Valid @RequestBody ProductoParamsDTO producto) {
         log.info(producto);
-        return ResponseEntity.ok(new ProductoEntity());
+        return ResponseEntity.ok(new ProductoDTO());
     }
 
     @PutMapping(value = "{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<ProductoDTO> updateProducto(
             @Valid @Positive(message = VALID_MESSAGE_PARAM) @PathVariable Long id,
-            @RequestBody ProductoEntity productoDetails) {
+            @RequestBody ProductoDTO productoDetails) {
         return ResponseEntity.ok(new ProductoDTO());
     }
 

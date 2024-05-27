@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.DisplayName;
@@ -45,9 +47,41 @@ class ProductoServicesTests {
     }
 
     @Test
-    @DisplayName("Producto no encontrado")
+    @DisplayName("Productos no encontrados")
     void casoDePruebaServices2() {
         when(repository.findById(anyLong())).thenReturn(Optional.empty());
         assertThrows(EntityNotFoundException.class, () -> services.productFindById(1L));
+    }
+
+    @Test
+    @DisplayName("Productos encontrado")
+    void casoDePruebaServices3() {
+        List<ProductoEntity> valueList = new ArrayList<>();
+        valueList.add(new ProductoEntity(1L, "un producto", "el producto"));
+        valueList.add(new ProductoEntity(2L, "otro producto", "el producto"));
+        Iterable<ProductoEntity> iterable = valueList;
+        when(repository.findAll()).thenReturn(iterable);
+        List<ProductoDTO> resultSet = services.productoAll();
+        assertFalse(resultSet.isEmpty());
+        resultSet.forEach(producto -> {
+            assertNotNull(producto);
+            assertTrue(producto.getId() > 0);
+            assertNotNull(producto.getNombre());
+            assertNotNull(producto.getDescripcion());
+        });
+        for (int index = 0; index < valueList.size(); index++) {
+            assertEquals(valueList.get(index).getId(), resultSet.get(index).getId().longValue());
+            assertEquals(valueList.get(index).getNombre(), resultSet.get(index).getNombre());
+            assertEquals(valueList.get(index).getDescripcion(), resultSet.get(index).getDescripcion());
+        }
+
+    }
+
+    @Test
+    @DisplayName("Producto no encontrado")
+    void casoDePruebaServices4() {
+        when(repository.findAll()).thenReturn(new ArrayList<>());
+        List<ProductoDTO> resultSet = services.productoAll();
+        assertTrue(resultSet.isEmpty());
     }
 }
