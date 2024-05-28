@@ -20,7 +20,7 @@
 		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
 		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
-		<sonar.host.url>https://3321-2806-290-a80a-e382-c665-16ff-fe36-3dac.ngrok-free.app</sonar.host.url>
+		<sonar.host.url>http://192.168.1.72</sonar.host.url>
 		<sonar.projectKey>productos</sonar.projectKey>
 		<sonar.token>sqp_70e1196e86f53076fbc832b065f69116081bcb43</sonar.token>
 		<sonar.coverage.exclusions>

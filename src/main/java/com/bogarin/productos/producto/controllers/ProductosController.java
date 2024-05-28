@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.bogarin.productos.producto.dtos.ProductoDTO;
 import com.bogarin.productos.producto.dtos.ProductoParamsDTO;
-import com.bogarin.productos.producto.entitys.ProductoEntity;
 import com.bogarin.productos.producto.services.ProductoServices;
 
 import jakarta.validation.Valid;
