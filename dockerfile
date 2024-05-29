@@ -6,7 +6,7 @@ ENV TZ America/Mexico_City
 COPY src /home/app/src
 COPY pom.xml /home/app
 # Creamos el paquete de liberacion
-RUN mvn -f /home/app/pom.xml clean package -DskipTests 
+RUN mvn -f /home/app/pom.xml clean package -DskipTests
 
 FROM openjdk:17-slim
 # Exponemos el puerto 8080 y 9901

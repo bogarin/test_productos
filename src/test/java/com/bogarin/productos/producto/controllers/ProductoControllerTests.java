@@ -32,7 +32,7 @@ class ProductoControllerTests {
 	@DisplayName("Buscando Happy Path para obtener creando mocks de resultado")
 	void casoDePruebaController1() throws Exception {
 		ProductoDTO entity = new ProductoDTO(1l, "computadora", "compu");
-		when(services.productFindById(1l)).thenReturn(entity);
+		when(services.productFindById(1l)).thenReturn(entity);//utilizada para crear mocks en pruebas unitarias
 		ResponseEntity<ProductoDTO> resultSet = controller.getProducto(1L);
 		assertTrue(resultSet.getStatusCode().is2xxSuccessful());
 		assertEquals(entity.getNombre(), resultSet.getBody().getNombre());

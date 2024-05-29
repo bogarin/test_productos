@@ -12,10 +12,10 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
-@ConfigurationProperties(prefix = "app.datasource")
+@ConfigurationProperties(prefix = "appication.datasource")
 public class DataSourceConfig {
 
-    @Value("${app.datasource.url}")
+    @Value("${appication.datasource.url}")
     private String url;
 
     @Primary
