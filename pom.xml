@@ -22,7 +22,7 @@
 		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
 		<sonar.host.url>http://192.168.1.72</sonar.host.url>
 		<sonar.projectKey>productos</sonar.projectKey>
-		<sonar.token>sqp_70e1196e86f53076fbc832b065f69116081bcb43</sonar.token>
+		<sonar.token>sqp_7a1443273ca0159153afb7d1a960f5b232986fa3</sonar.token>
 		<sonar.coverage.exclusions>
 			**/*SwaggerConfig*,
 			**/*AppConfig*,
